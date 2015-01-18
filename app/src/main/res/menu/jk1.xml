@@ -1,0 +1,25 @@
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".JK1Act" >
+    <item android:id="@+id/action_settings"
+        android:title="@string/action_settings"
+        android:orderInCategory="100"
+        android:showAsAction="never" />
+</menu>
+
+<!-- Defines the menu item that will appear on the Action Bar in MainActivity - - >
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:omgandroid="http://schemas.android.com/apk/res-auto">
+    <! - - xmlns:omgandroid="http://schemas.android.com/apk/res-auto" res/com.example.jk1 - - >
+    <! - - Share item - - >
+    <item
+        android:id="@+id/menu_item_share"
+        android:title="Share"
+        omgandroid:actionProviderClass= "android.support.v7.widget.ShareActionProvider"
+        omgandroid:showAsAction="ifRoom"
+
+        />
+    <! - - omg android:actionProviderClass= "android.support.v7.widget.ShareActionProvider" - - >
+</menu>
+-->
