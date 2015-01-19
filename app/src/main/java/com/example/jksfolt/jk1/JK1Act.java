@@ -3,21 +3,19 @@ package com.example.jksfolt.jk1;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.view.MenuItemCompat;
+import android.support.v7.widget.ShareActionProvider;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.ShareActionProvider;
 import android.widget.TextView;
-
 import java.util.ArrayList;
-
-// import android.support.v7.widget; //.ShareActionProvider;
-
 
 public class JK1Act extends Activity implements View.OnClickListener,
     AdapterView.OnItemClickListener {
@@ -28,7 +26,6 @@ public class JK1Act extends Activity implements View.OnClickListener,
     ListView mainListView;
     public ArrayAdapter mArrayAdapter;
     public ArrayList mNameList = new ArrayList();
-    // omgandroid:
     ShareActionProvider mShareActionProvider;
 
     @Override
@@ -61,56 +58,38 @@ public class JK1Act extends Activity implements View.OnClickListener,
 
     @Override
     public void onClick(View v) {
-        // mainTextView.setText("Button pressed");
         mainTextView.setText(mainEditText.getText().toString() + " is learning Android");
         // Also add that value to the list shown in the ListView
         mNameList.add(mainEditText.getText().toString());
         mArrayAdapter.notifyDataSetChanged();   //
+
+        // 6. The text you'd like to share has changed,
+        // and you need to update
+        setShareIntent();
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         // Log the item's position and contents to the console in debug
         Log.d("stuff" , position + ": " + mNameList.get(position));
-    }
 
-    /*
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
-    */
-
-    /*
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.jk1, menu);
-        return true;
-    } */
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
         // Inflate the menu.
         // Adds items to the action bar if it is present.
-        // getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
 
         // Access the Share Item defined in menu XML
-        // MenuItem shareItem = menu.findItem(R.id.menu_item_share);
+        MenuItem shareItem = menu.findItem(R.id.menu_item_share);
 
         // Access the object responsible for
         // putting together the sharing submenu
-        // if (shareItem != null) {
-        //     mShareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(shareItem);
-        // }
+        if (shareItem != null) {
+            mShareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(shareItem);
+        }
 
         // Create an Intent to share your content
         setShareIntent();
