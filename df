@@ -1,0 +1,4 @@
+[33m7dfb0af[m HEAD@{0}: checkout: moving from master to master
+[33m7dfb0af[m HEAD@{1}: commit: Works up to 'sharing' though 'sharing' does not function. Moving on to 'Remembering your name'
+[33m7ac668b[m HEAD@{2}: pull https://github.com/jksfoTemp/Android.git: Merge made by the 'recursive' strategy.
+[33mc5eabef[m HEAD@{3}: commit (initial): Now works but having trouble adding the menu, some sort of namespace collision
